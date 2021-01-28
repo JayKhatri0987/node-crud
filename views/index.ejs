@@ -1,0 +1,56 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.22/datatables.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.22/datatables.min.css"/>
+        <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap5.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+        <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+        <script> $(document).ready(function(){
+          $('#table').DataTable({
+            "order": [[ 0, "desc" ]] }); });
+        </script>
+<style>
+body{
+    font-family: Calibri, Helvetica, sans-serif;
+  }
+  .container {
+    background-color: lightblue;
+  }
+</style>
+</head>
+<body class="">
+    <div class="container" style="height: 100vh;">
+        <table id="table" class="table table"> 
+            <h2 class="text-center"><b><%= title %></b></h2>
+            <a href="/add" class="btn btn-primary">Add  User</a><br/><br/>
+            <thead>
+            <tr>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Target Date</th>
+                <th>Status</th>
+                <th>Action</th> 
+            </tr>
+            </thead>
+            <tbody>
+                <% users.forEach(function(user){ %>
+                    <tr>
+                        <td><%= user.Title %></td>
+                        <td><%= user.Description %></td>
+                        <td><%= user.Target_date %></td>
+                        <td><%= user.Status %></td>
+                        <td>
+                            <a href="edit/<%= user.id %>" class="">Edit</a> ||    
+                            <a href="api/deletedata/<%= user.id %>" class="">Delete</a>
+                        </td>
+                    </tr>
+                <% }); %>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+</body>
+</html>
