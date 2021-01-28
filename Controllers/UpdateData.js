@@ -9,7 +9,7 @@ var Table = 'test_project';
 var UPDATEData = (req,res) => {
 
     ModifyDate = CurrentDateTime();
-    console.log(req.body)
+ 
     MySqlQuery = sqlstring.format(`UPDATE ${Table} SET Title = ?, Description = ?, Target_date = ?,
     ModifyDate = ? , Status = ? WHERE id = ? `,[req.body.Title, req.body.Description, 
     req.body.CreatedDate, ModifyDate , req.body.Status ,req.body.id])
